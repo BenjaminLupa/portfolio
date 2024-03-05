@@ -37,3 +37,23 @@ let changeText = () => {
 
 changeText();
 setInterval(changeText, 3000);
+
+// Circle /////////////////////////////
+const circles = document.querySelectorAll(".circle");
+circles.forEach((element) => {
+  let dots = element.getAttribute("data-dots");
+  let marked = element.getAttribute("data-percent");
+  let percent = Math.floor((dots * marked) / 100);
+  let points = "";
+  let rotate = 360 / dots;
+
+  for (let i = 0; i < dots; i++) {
+    points += `<div class="points" style="--i:${i}; --rot:${rotate}deg"></div>`;
+  }
+  element.innerHTML = points;
+
+  const pointsMarked = element.querySelectorAll(".points");
+  for (let i = 0; i < percent; i++) {
+    pointsMarked[i].classList.add("marked");
+  }
+});
