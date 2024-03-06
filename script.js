@@ -57,3 +57,7 @@ circles.forEach((element) => {
     pointsMarked[i].classList.add("marked");
   }
 });
+
+//mix it up PORTFOLIO section
+
+var mixer = mixitup(".portfolio-gallery");
