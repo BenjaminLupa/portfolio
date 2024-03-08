@@ -40,11 +40,22 @@ body {
   color: var(--text-color);
 }
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  border-bottom: 1px solid transparent;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   padding: 20px 10%;
+}
+
+header.sticky {
+  background: var(--bg-color);
+  border-bottom: 1px solid var(--secon-color);
+  padding: 12px 10%;
 }
 
 .logo {
@@ -73,6 +84,10 @@ span {
     0 0 40px rgba(255, 235, 18, 0.6), 0 0 70px rgba(255, 235, 18, 0.6),
     0 0 80px rgba(255, 235, 18, 0.6), 0 0 100px rgba(255, 235, 18, 0.6),
     0 0 150px rgba(255, 235, 18, 0.6);
+}
+
+.navlist a.active {
+  color: var(--hover-color);
 }
 #menu-icon {
   font-size: 1.8rem;
@@ -746,5 +761,115 @@ footer a i {
   100% {
     background: var(--hover-color);
     box-shadow: var(--neon-box-shadow);
+  }
+}
+
+/* Break Points */
+@media (max-width: 991px) {
+  header,
+  header.sticky {
+    padding: 15px 5%;
+  }
+  footer {
+    padding: 15px 5%;
+  }
+  section {
+    padding: 50px 5%;
+  }
+  .navlist a {
+    padding: 8px 15px;
+  }
+  :root {
+    --big-font: 2.2rem;
+    --norma-font: 1.8rem;
+    --neon-box-shadow: 0 0 0.8rem #d9f500;
+    --h2-font: 3rem;
+  }
+  .home-content {
+    margin-top: 5rem;
+  }
+  .social-icons {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #menu-icon {
+    display: block;
+    transition: all 0.4s ease;
+  }
+  #menu-icon.bx-x {
+    transform: rotate(-180deg);
+  }
+  .navlist {
+    display: flex;
+    position: absolute;
+    top: -1000px;
+    right: 0;
+    left: 0;
+    flex-direction: column;
+    background: var(--bg-color);
+    text-align: left;
+    padding: 0 5%;
+    transition: all 0.45s ease;
+  }
+  .navlist a {
+    display: block;
+    padding-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .navlist.open {
+    top: 100%;
+  }
+  .home {
+    grid-template-columns: 1fr;
+  }
+  .home-image {
+    margin-bottom: 5rem;
+  }
+  .liquid-shape {
+    width: 80%;
+    left: 10%;
+    top: 13%;
+  }
+
+  .about {
+    flex-direction: column-reverse;
+  }
+
+  .skill-main {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-buttons {
+    margin: 2.5rem 0;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 420px) {
+  html {
+    font-size: 80%;
+  }
+  footer p {
+    font-size: 0.6rem;
+  }
+  .filter-buttons .btn {
+    font-size: 0.8rem;
+  }
+  .img-about img {
+    width: 300px;
+  }
+  .info-about1,
+  .info-about2 {
+    display: none;
+  }
+
+  .img-about p {
+    font-size: 1rem;
   }
 }
